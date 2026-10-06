@@ -80,11 +80,12 @@ export default function Packages() {
         {/* =========================================================================
             EDITORIAL HEADER
             ========================================================================= */}
-        <div className="mb-24 md:mb-32">
+        <div className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-6 h-[2px] bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
-            <span className="text-blue-400 font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
-              SHOW & PRODUCTION
+            <span className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+            <span className="text-blue-400 font-mono font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
+              02 / SHOW & PRODUCTION
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-[0.9] drop-shadow-lg">
@@ -95,7 +96,7 @@ export default function Packages() {
         {/* =========================================================================
             EDITORIAL SPREAD: REVISTA / PORTFOLIO DE ARTISTA (ALTERNANCIA LIMPIA)
             ========================================================================= */}
-        <div className="divide-y divide-zinc-800/40 border-t border-b border-zinc-800/40">
+        <div className="divide-y divide-zinc-900 border-t border-b border-zinc-900">
           {djData.packages.map((pkg, index) => {
             const isReversed = index % 2 === 1;
             const serviceNum = String(index + 1).padStart(2, '0');
@@ -109,28 +110,34 @@ export default function Packages() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.75 }}
-                className="py-24 sm:py-32 lg:py-36 xl:py-40"
+                className="py-20 sm:py-28 lg:py-32 xl:py-36 group/pkg relative"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
+                {/* Micro-línea de acento LED que recorre la fila en hover desktop */}
+                <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover/pkg:via-blue-500/70 transition-all duration-700 pointer-events-none" />
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-center">
                   
                   {/* =================================================================
                       COLUMNA DE TEXTO EDITORIAL
                       ================================================================= */}
                   <div className={`w-full lg:col-span-5 flex flex-col justify-center ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     
-                    {/* 1. NÚMERO MONOESPACIADO EDITORIAL */}
-                    <span className="text-xs sm:text-sm font-mono font-medium tracking-[0.25em] text-blue-400/90 block mb-3">
-                      {serviceNum} — SERVICIO
-                    </span>
+                    {/* 1. NÚMERO MONOESPACIADO EDITORIAL CON RAIL */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-blue-400 block">
+                        {serviceNum} — SERVICIO
+                      </span>
+                      <span className="w-8 h-[1px] bg-gradient-to-r from-blue-500/60 to-transparent" />
+                    </div>
 
                     {/* 2. TÍTULO EDITORIAL FUERTE Y LIMPIO */}
-                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight uppercase mb-6 leading-[1.05]">
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight uppercase mb-6 leading-[1.05]">
                       {getFormattedTitle(pkg.name)}
                     </h3>
 
                     {/* 3. IMAGEN EN MÓVIL (Ubicada exactamente después del título, proporción 4:5 alta y limpia) */}
                     <div className="lg:hidden my-6">
-                      <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/60 shadow-2xl">
+                      <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/80 shadow-2xl">
                         {pkg.image && (
                           <img 
                             src={pkg.image} 
@@ -141,7 +148,7 @@ export default function Packages() {
                           />
                         )}
                         {/* Gradiente sutil inferior */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                       </div>
                     </div>
 
@@ -152,14 +159,14 @@ export default function Packages() {
 
                     {/* 5. INCLUYE / ESPECIFICACIONES (Lista editorial limpia de 2 columnas) */}
                     {includes.length > 0 && (
-                      <div className="pt-6 border-t border-zinc-900/90 mb-8">
-                        <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400 font-medium block mb-4">
+                      <div className="pt-6 border-t border-zinc-900 mb-8">
+                        <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400 font-semibold block mb-4">
                           Incluye / Especificaciones:
                         </span>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-300">
                           {includes.map((feature, i) => (
                             <li key={i} className="flex items-start gap-2.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500/70 mt-1.5 shrink-0" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.6)] mt-1.5 shrink-0" />
                               <span className="font-light leading-snug">{feature}</span>
                             </li>
                           ))}
@@ -173,7 +180,7 @@ export default function Packages() {
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300 hover:text-blue-400 transition-colors group/cta cursor-pointer"
+                        className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-zinc-200 hover:text-blue-400 transition-colors group/cta cursor-pointer"
                       >
                         <span>Solicitar Cotización</span>
                         <ArrowRight size={14} className="text-blue-500 group-hover/cta:translate-x-2 transition-transform duration-300" />
@@ -186,12 +193,12 @@ export default function Packages() {
                       COLUMNA DE FOTOGRAFÍA EDITORIAL (DESKTOP: PROPORCIÓN 4:5 / 5:4 ALTA)
                       ================================================================= */}
                   <div className={`hidden lg:block lg:col-span-7 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="relative aspect-[4/5] xl:aspect-[5/4] w-full rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/60 group shadow-2xl transition-all duration-700 hover:border-zinc-700">
+                    <div className="relative aspect-[4/5] xl:aspect-[5/4] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800/80 group shadow-2xl transition-all duration-500 group-hover/pkg:border-blue-500/40 group-hover/pkg:shadow-[0_0_35px_rgba(59,130,246,0.15)]">
                       {pkg.image && (
                         <img 
                           src={pkg.image} 
                           alt={pkg.name} 
-                          className={`w-full h-full transition-transform duration-1000 ease-out group-hover:scale-[1.015] ${getImageObjectPosition(index)}`}
+                          className={`w-full h-full transition-transform duration-1000 ease-out group-hover/pkg:scale-[1.02] ${getImageObjectPosition(index)}`}
                           loading="lazy"
                           decoding="async"
                         />
@@ -199,7 +206,7 @@ export default function Packages() {
                       
                       {/* Velo cinemático tenue que enmarca la foto sin restar protagonismo */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-black/15 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
                     </div>
                   </div>
 

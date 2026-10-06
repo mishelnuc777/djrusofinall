@@ -97,9 +97,10 @@ export default function About() {
           >
             {/* Section Tag */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-6 h-[2px] bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
-              <span className="text-blue-400 font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
-                TRAYECTORIA
+              <span className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+              <span className="text-blue-400 font-mono font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
+                07 / TRAYECTORIA
               </span>
             </div>
 

@@ -57,14 +57,22 @@ export default function FinalCTA() {
             className="lg:col-span-5 flex flex-col justify-center order-2 text-left"
           >
             {/* Monumental Title */}
-            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-[0.88] mb-6">
+            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-[0.88] mb-4">
               DJ BRYAN<br />ACOSTA
             </h2>
 
+            {/* Sub-identity: DJ DE DJS */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-6 h-[2px] bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+              <span className="text-blue-400 font-extrabold tracking-[0.3em] uppercase text-xs sm:text-sm">
+                DJ DE DJS
+              </span>
+            </div>
+
             {/* Signature Phrase */}
             <div className="flex items-center gap-3 mb-10">
-              <span className="w-6 h-[1.5px] bg-blue-500"></span>
-              <p className="text-zinc-400 text-sm sm:text-base font-light tracking-wide italic">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+              <p className="text-zinc-300 text-sm sm:text-base font-light tracking-wide italic">
                 «Desde la última loma de Caspigasi»
               </p>
             </div>
@@ -76,7 +84,7 @@ export default function FinalCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hablar por WhatsApp con Bryan Acosta"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg transition-all shadow-[0_0_25px_rgba(37,211,102,0.35)] hover:shadow-[0_0_35px_rgba(37,211,102,0.5)] cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl transition-all shadow-[0_0_25px_rgba(37,211,102,0.35)] hover:shadow-[0_0_35px_rgba(37,211,102,0.55)] cursor-pointer hover:-translate-y-0.5 active:translate-y-0 border border-emerald-400/40"
               >
                 <WhatsAppIcon className="w-5 h-5 text-white shrink-0" />
                 <span>HABLAR POR WHATSAPP</span>

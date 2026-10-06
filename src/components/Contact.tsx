@@ -154,16 +154,17 @@ export default function Contact() {
             ========================================================================= */}
         <div className="mb-16 md:mb-20">
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-6 h-[2px] bg-blue-500"></span>
-            <span className="text-blue-400 font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
-              RESERVAS
+            <span className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+            <span className="text-blue-400 font-mono font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
+              08 / RESERVAS
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-[0.9] mb-4">
-            RESERVA TU FECHA
+            HAZ QUE LA NOCHE EMPIECE
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base font-light max-w-xl">
-            Cuéntanos sobre tu evento y consulta disponibilidad en cabina y producción sonora.
+          <p className="text-zinc-300 text-sm sm:text-base font-light max-w-xl">
+            Reserva a DJ Bryan Acosta para tu próximo evento. Cuéntanos sobre tu fecha y consulta disponibilidad en cabina y producción sonora.
           </p>
         </div>
 

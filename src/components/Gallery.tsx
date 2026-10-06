@@ -143,9 +143,10 @@ export default function Gallery() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 md:mb-16 gap-4">
           <div>
             <div className="flex items-center gap-3 mb-2.5">
-              <span className="w-6 h-[2px] bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
-              <span className="text-blue-400 font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
-                ARCHIVO
+              <span className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+              <span className="text-blue-400 font-mono font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
+                04 / LIVE ARCHIVE
               </span>
             </div>
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-[0.9] drop-shadow-lg">
@@ -153,11 +154,11 @@ export default function Gallery() {
             </h2>
           </div>
 
-          <div className="text-xs text-zinc-500 uppercase tracking-widest font-mono pb-1 self-start sm:self-end">
+          <div className="text-xs text-zinc-400 uppercase tracking-widest font-mono pb-1 self-start sm:self-end">
             <span>
               {hasItems && (
                 <>
-                  {galleryPhotos.length} Fotografías
+                  <span className="text-blue-400 font-bold">{galleryPhotos.length}</span> Fotografías
                   {galleryVideoItems.length > 0 && ` · ${galleryVideoItems.length} Videos`}
                 </>
               )}

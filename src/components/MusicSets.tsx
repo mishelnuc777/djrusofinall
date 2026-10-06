@@ -67,9 +67,10 @@ export default function MusicSets() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-3"
             >
-              <span className="w-6 h-[2px] bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
-              <span className="text-red-400 font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
-                SESIONES EN VIVO
+              <span className="w-8 h-[2px] bg-gradient-to-r from-red-500 to-transparent shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_6px_rgba(239,68,68,0.9)] animate-pulse" />
+              <span className="text-red-400 font-mono font-bold tracking-[0.28em] uppercase text-xs drop-shadow-sm">
+                03 / SELECTED SETS
               </span>
             </m.div>
 
@@ -93,7 +94,7 @@ export default function MusicSets() {
               href={youtubeSocial.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs uppercase tracking-widest font-semibold text-zinc-400 hover:text-white transition-colors flex items-center gap-2 group self-start md:self-end pb-2"
+              className="text-xs uppercase tracking-widest font-semibold text-zinc-400 hover:text-white transition-colors flex items-center gap-2 group self-start md:self-end pb-2 cursor-pointer"
             >
               <Youtube size={15} className="text-red-500 group-hover:scale-110 transition-transform" />
               <span>Canal Oficial en YouTube</span>

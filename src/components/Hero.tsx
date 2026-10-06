@@ -228,8 +228,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.12 }}
             className="flex items-center gap-3 mb-6"
           >
-            <span className="w-6 h-[2px] bg-blue-500"></span>
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.22em] uppercase text-zinc-300 drop-shadow-sm">
+            <span className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-zinc-300 drop-shadow-sm">
               «{displaySlogan}»
             </span>
           </m.div>
@@ -249,9 +250,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.28 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-7"
           >
-            <span className="w-5 h-[2px] bg-blue-500"></span>
+            <span className="w-6 h-[2px] bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
             <span className="text-blue-400 font-extrabold tracking-[0.3em] uppercase text-xs sm:text-sm">
               DJ DE DJS
             </span>
@@ -262,7 +263,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="text-zinc-300 text-base sm:text-lg md:text-xl max-w-xl mb-9 font-normal leading-relaxed text-balance"
+            className="text-zinc-300 text-base sm:text-lg md:text-xl max-w-xl mb-10 font-normal leading-relaxed text-balance"
           >
             {displayDescription}
           </m.p>
@@ -289,7 +290,7 @@ export default function Hero() {
             {/* Secondary CTA: Escuchar Sesiones (Refined, Editorial) */}
             <a 
               href="#music"
-              className="px-7 py-4 bg-zinc-950/40 hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-zinc-600 text-zinc-300 hover:text-white font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-xl transition-all duration-300 md:backdrop-blur-sm flex items-center justify-center gap-2.5 group"
+              className="px-7 py-4 bg-zinc-950/60 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 group cursor-pointer hover:-translate-y-0.5 active:translate-y-0"
             >
               <Disc3 size={17} className="text-blue-400 group-hover:rotate-45 transition-transform duration-300" />
               <span>Escuchar Sesiones</span>
@@ -300,17 +301,18 @@ export default function Hero() {
       </div>
 
       {/* =========================================================================
-          DISCREET SCROLL INDICATOR
+          DISCREET SCROLL INDICATOR (EDITORIAL RAIL)
           ========================================================================= */}
       <m.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-8 left-6 sm:left-8 lg:left-12 flex items-center gap-3 pointer-events-none"
+        className="absolute bottom-8 left-6 sm:left-8 lg:left-12 hidden sm:flex items-center gap-3 pointer-events-none"
       >
-        <div className="w-8 h-[1px] bg-gradient-to-r from-blue-500 to-transparent"></div>
-        <span className="text-zinc-500 text-[10px] font-semibold uppercase tracking-[0.25em]">
-          Deslizar para explorar
+        <div className="w-10 h-[1.5px] bg-gradient-to-r from-blue-500 to-transparent shadow-[0_0_6px_rgba(59,130,246,0.8)]"></div>
+        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.9)] animate-pulse" />
+        <span className="text-zinc-400 text-[10px] font-mono font-semibold uppercase tracking-[0.28em]">
+          SCROLL TO EXPLORE
         </span>
       </m.div>
 
