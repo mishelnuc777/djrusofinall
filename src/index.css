@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #000000;
+    color: #f4f4f5;
+  }
+}
+
+/* Subtle cinematic film grain overlay for artist / concert aesthetic (active on desktop) */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Disable full-screen fixed SVG filter compositing on mobile / touch devices and reduced-motion */
+@media (max-width: 768px), (hover: none) and (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .grain-overlay {
+    display: none !important;
+  }
+}
+
+/* Accessible reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile GPU performance optimization: cap extreme blur radii (120px-190px) to reasonable mobile ranges (48px-64px) */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .blur-\[140px\],
+  .blur-\[150px\],
+  .blur-\[160px\],
+  .blur-\[170px\],
+  .blur-\[180px\],
+  .blur-\[190px\] {
+    filter: blur(64px) !important;
+  }
+
+  .blur-\[120px\],
+  .blur-\[130px\] {
+    filter: blur(48px) !important;
+  }
+}
+
+/* Mobile / touch: los glows decorativos grandes dejan de usar filter: blur() (se recalcula en GPU en cada frame
+   de scroll). Se sustituyen por una máscara radial estática, visualmente equivalente a 5-12% de opacidad.
+   - .glow-flat: el elemento ya trae radial-gradient propio (solo se suaviza el borde).
+   - .glow-soft: color sólido; la máscara produce el degradado que antes daba el blur. */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .glow-flat {
+    filter: none !important;
+    -webkit-mask-image: radial-gradient(closest-side, #000 70%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 70%, transparent 100%);
+  }
+
+  .glow-soft {
+    filter: none !important;
+    -webkit-mask-image: radial-gradient(closest-side, #000 20%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 20%, transparent 100%);
+  }
+}
+
+/* Respiración ambiental de los glows (solo desktop, ver AmbientGlow.tsx).
+   Solo transform + opacity => se ejecuta en el compositor, sin trabajo de layout/paint. */
+@keyframes ambient-breathe {
+  0%,
+  100% {
+    transform: translate3d(var(--ag-x0, 0px), var(--ag-y0, 0px), 0) scale(1);
+    opacity: var(--ag-o0, 0.5);
+  }
+  50% {
+    transform: translate3d(var(--ag-x1, 0px), var(--ag-y1, 0px), 0) scale(var(--ag-s1, 1.06));
+    opacity: var(--ag-o1, 0.75);
+  }
+}
+
+/* Safe content-visibility for deep below-the-fold non-anchor sections */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 750px;
+}
+
+/* Hide scrollbar for mobile snap carousels without breaking scroll capability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
